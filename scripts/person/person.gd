@@ -8,6 +8,8 @@ var move_delta: Vector2 = Vector2.ZERO
 var speed: float = 20
 var loved: bool = false
 
+var stop_random: bool = false
+
 func set_loved(loved_value: bool) -> void:
 	loved = loved_value
 	set_collision_mask_value(1, false)
@@ -20,29 +22,34 @@ func _input(event: InputEvent) -> void:
 		set_random_direction()
 
 func randomize_loop() -> void:
-	while loved == false:
+	while loved == false && stop_random == false:
 		set_random_direction()
 		set_random_face()
+		set_random_speed()
 		var wait_time := randf_range(2.0, 5.0)
 		await get_tree().create_timer(wait_time).timeout
 
 func _physics_process(delta: float) -> void:
 	linear_velocity = move_delta.normalized() * speed
+	
+func set_random_direction():
+	move_delta = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
+
+func set_random_speed():
+	speed = randf_range(17, 24)
 
 func _ready() -> void:
 	gravity_scale = 0
 	randomize_loop()
-	set_random_direction()
-	set_random_face()
 
-func set_random_direction() -> void:
-	move_delta = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
-
-func set_random_face() -> void:
-	var face: Texture2D = get_random_face()
+func set_face(face: Texture2D):
 	mask.texture = face
 	mask_texture_filter_resource_path = face.resource_path
-
+	
+func set_random_face() -> void:
+	var face: Texture2D = get_random_face()
+	set_face(face)
+	
 func get_random_face() -> Texture2D:
 	var game = $"../../Game"
 	var random_i: int = randi_range(0, game.faces.size() - 1)

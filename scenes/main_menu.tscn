@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://bb0r16xc8rqy0" path="res://fonts/DotGothic16-Regular.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://cs5k0mbk4yvo3" path="res://scripts/ui/buttons/play_game_button.gd" id="2_ekxnf"]
-[ext_resource type="PackedScene" uid="uid://cejig7k64cx1e" path="res://scenes/game.tscn" id="3_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://cejig7k64cx1e" path="res://scenes/levels/1.tscn" id="3_bqqt6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
 font = ExtResource("1_l6cm7")

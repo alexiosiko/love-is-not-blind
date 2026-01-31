@@ -96,36 +96,40 @@ script = ExtResource("8_gee14")
 
 [node name="Enviroment" type="Node2D" parent="." unique_id=196651898]
 
-[node name="Walls" type="Area2D" parent="Enviroment" unique_id=81865117]
+[node name="Area2D" type="Area2D" parent="Enviroment" unique_id=1871438073]
 script = ExtResource("14_ir15t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Walls" unique_id=972166679]
+[node name="WallBody" type="StaticBody2D" parent="Enviroment" unique_id=1571941575]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=972166679]
 position = Vector2(-140, 11)
 shape = SubResource("RectangleShape2D_dinhu")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enviroment/Walls" unique_id=554736935]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=554736935]
 position = Vector2(143, 11)
 shape = SubResource("RectangleShape2D_dinhu")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Enviroment/Walls" unique_id=1220451500]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=1220451500]
 position = Vector2(-67, -64)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_kvuet")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Enviroment/Walls" unique_id=2027350073]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=2027350073]
 position = Vector2(59, -46)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_kvuet")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Enviroment/Walls" unique_id=872463525]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=872463525]
 position = Vector2(62, 89)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_kvuet")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Enviroment/Walls" unique_id=445717072]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=445717072]
 position = Vector2(-77, 85)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_kvuet")
+
+[node name="Node" type="Node" parent="Enviroment/WallBody" unique_id=782188075]
 
 [node name="Grass" type="Sprite2D" parent="Enviroment" unique_id=605742878]
 z_index = -10

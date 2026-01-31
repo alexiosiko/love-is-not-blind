@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://jb5s5xwkp1rc" path="res://scripts/person/people.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://3athoxt1ows7" path="res://prefabs/person.tscn" id="1_uwrxv"]
-[ext_resource type="Script" uid="uid://l8ppi3l8bewf" path="res://scripts/ui/time_label.gd" id="3_ca42v"]
 [ext_resource type="Script" uid="uid://ivjtn3ckartd" path="res://scripts/game/game.gd" id="3_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://pq36apado1cb" path="res://sprites/faces/x3.png" id="4_p57ef"]
 [ext_resource type="Texture2D" uid="uid://ckwn2sle02ybo" path="res://sprites/faces/x4.png" id="5_u5sy4"]
@@ -16,6 +15,12 @@
 [ext_resource type="Script" uid="uid://dwqdrh70j5fv6" path="res://scripts/ui/number_of_lovers.gd" id="10_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bvatt8cp4covo" path="res://sprites/grass.png" id="12_dinhu"]
 [ext_resource type="Script" uid="uid://cs562nk2jt3ko" path="res://scripts/game/walls.gd" id="14_ir15t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dinhu"]
+size = Vector2(32, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
+size = Vector2(32, 150)
 
 [node name="Node2D" type="Node2D" unique_id=624366689]
 
@@ -58,24 +63,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer/Bottom" unique_id=1568272079]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -24.0
-offset_top = -50.0
-offset_right = 16.0
-offset_bottom = -27.0
-grow_horizontal = 2
-grow_vertical = 0
-label_settings = ExtResource("10_kvpfn")
-script = ExtResource("3_ca42v")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="People" type="Node2D" parent="." unique_id=107980294]
 script = ExtResource("1_gee14")
@@ -104,11 +101,38 @@ script = ExtResource("14_ir15t")
 
 [node name="WallBody" type="StaticBody2D" parent="Enviroment" unique_id=1571941575]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviroment/WallBody" unique_id=2033283670]
-polygon = PackedVector2Array(5, -39, -24, -56, -73, -59, -119, -62, -145, -65, -160, -44, -161, -5, -163, 17, -148, 38, -166, 74, -111, 66, -81, 68, -47, 67, -16, 72, 45, 73, 88, 61, 115, 79, 150, 82, 156, 50, 155, -17, 145, -50, 97, -55, 16, -39, -2, -46, 178, -94, 189, 108, -214, 119, -186, -88, 3, -83)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=972166679]
+position = Vector2(-140, 11)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=554736935]
+position = Vector2(143, 11)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=1220451500]
+position = Vector2(-67, -64)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_kvuet")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=2027350073]
+position = Vector2(59, -46)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_kvuet")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=872463525]
+position = Vector2(62, 89)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_kvuet")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=445717072]
+position = Vector2(-77, 85)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_kvuet")
+
+[node name="Node" type="Node" parent="Enviroment/WallBody" unique_id=782188075]
 
 [node name="Grass" type="Sprite2D" parent="Enviroment" unique_id=605742878]
 z_index = -10
 position = Vector2(0, 14)
-scale = Vector2(0.33631387, 0.32375428)
+scale = Vector2(0.27666664, 0.27666667)
 texture = ExtResource("12_dinhu")

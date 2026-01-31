@@ -5,10 +5,11 @@ extends Node
 
 
 func _ready() -> void:
-	people.create_people(2)
+	people.create_people(12)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart_game"):
 		people.start_game()
+	
 func win():
 	print("win")
