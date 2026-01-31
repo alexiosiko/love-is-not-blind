@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://cejig7k64cx1e"]
+
+[ext_resource type="Script" uid="uid://jb5s5xwkp1rc" path="res://scripts/person/people.gd" id="1_gee14"]
+[ext_resource type="PackedScene" uid="uid://3athoxt1ows7" path="res://prefabs/person.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://l8ppi3l8bewf" path="res://scripts/ui/time_label.gd" id="3_ca42v"]
+[ext_resource type="Script" uid="uid://ivjtn3ckartd" path="res://scripts/game/game.gd" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://dclhgvb3epv75" path="res://scripts/player/controller.gd" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://bqr7dhrerb5l" path="res://scripts/player/drag_and_drop.gd" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://l6omdr1d3oyc" path="res://scripts/player/intersect_point.gd" id="8_gee14"]
+[ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="10_kvpfn"]
+[ext_resource type="Script" uid="uid://dwqdrh70j5fv6" path="res://scripts/ui/number_of_lovers.gd" id="10_vtaks"]
+[ext_resource type="Texture2D" uid="uid://bvatt8cp4covo" path="res://sprites/grass.png" id="12_dinhu"]
+[ext_resource type="Script" uid="uid://cs562nk2jt3ko" path="res://scripts/game/walls.gd" id="14_ir15t"]
+
+[node name="1" type="Node2D" unique_id=624366689]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=554313013]
+zoom = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=148367314]
+
+[node name="Top" type="Control" parent="CanvasLayer" unique_id=1755730393]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 182.0
+offset_right = 182.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Top" unique_id=486972436]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -182.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Number of Lovers Left: "
+label_settings = ExtResource("10_kvpfn")
+
+[node name="LoversLeftCount" type="Label" parent="CanvasLayer/Top" unique_id=1143853439]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = ExtResource("10_kvpfn")
+script = ExtResource("10_vtaks")
+
+[node name="Bottom" type="Control" parent="CanvasLayer" unique_id=1926615389]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Bottom" unique_id=1568272079]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -50.0
+offset_right = 16.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("10_kvpfn")
+script = ExtResource("3_ca42v")
+
+[node name="People" type="Node2D" parent="." unique_id=107980294]
+script = ExtResource("1_gee14")
+person_packed = ExtResource("1_uwrxv")
+
+[node name="Person" parent="People" unique_id=1152385417 instance=ExtResource("1_uwrxv")]
+mask_texture_filter_resource_path = null
+
+[node name="Game" type="Node" parent="." unique_id=1067750754]
+script = ExtResource("3_lnu2h")
+num_of_people = 32
+
+[node name="Controller" type="Node2D" parent="." unique_id=1788381575]
+script = ExtResource("6_p57ef")
+
+[node name="DragAndDrop" type="Node2D" parent="Controller" unique_id=654410334]
+script = ExtResource("7_u5sy4")
+
+[node name="IntersectPoint" type="Node2D" parent="Controller" unique_id=1187716154]
+script = ExtResource("8_gee14")
+
+[node name="Lovers" type="Node2D" parent="." unique_id=900190736]
+
+[node name="Enviroment" type="Node2D" parent="." unique_id=196651898]
+
+[node name="Area2D" type="Area2D" parent="Enviroment" unique_id=1871438073]
+script = ExtResource("14_ir15t")
+
+[node name="WallBody" type="StaticBody2D" parent="Enviroment" unique_id=1571941575]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviroment/WallBody" unique_id=2033283670]
+polygon = PackedVector2Array(5, -39, -24, -56, -73, -59, -119, -62, -145, -65, -160, -44, -161, -5, -163, 17, -148, 38, -166, 74, -111, 66, -81, 68, -47, 67, -16, 72, 45, 73, 88, 61, 115, 79, 150, 82, 156, 50, 155, -17, 145, -50, 97, -55, 16, -39, -2, -46, 178, -94, 189, 108, -214, 119, -186, -88, 3, -83)
+
+[node name="Grass" type="Sprite2D" parent="Enviroment" unique_id=605742878]
+z_index = -10
+position = Vector2(0, 14)
+scale = Vector2(0.33631387, 0.32375428)
+texture = ExtResource("12_dinhu")

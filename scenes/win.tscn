@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://y1nhk3ioa3ct"]
+
+[ext_resource type="FontFile" uid="uid://bb0r16xc8rqy0" path="res://fonts/DotGothic16-Regular.ttf" id="1_826fv"]
+[ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="2_iiocm"]
+[ext_resource type="Script" uid="uid://cs5k0mbk4yvo3" path="res://scripts/ui/buttons/change_scene.gd" id="3_yxbqr"]
+[ext_resource type="PackedScene" uid="uid://6qfcc24mfvrw" path="res://scenes/main_menu.tscn" id="4_tylv2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxbqr"]
+font = ExtResource("1_826fv")
+font_size = 64
+
+[node name="Win" type="Node2D" unique_id=858082270]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1124657560]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1228086091]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -24.0
+offset_right = 48.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=2026596004]
+layout_mode = 2
+text = "WINNER"
+label_settings = SubResource("LabelSettings_yxbqr")
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=928027986]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Love truly IS blind"
+label_settings = ExtResource("2_iiocm")
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1224236391]
+layout_mode = 2
+text = "Go Back"
+script = ExtResource("3_yxbqr")
+scene_to_load = ExtResource("4_tylv2")

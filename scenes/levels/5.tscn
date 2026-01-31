@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://dw6oj0mbpgoj2"]
+
+[ext_resource type="Script" uid="uid://jb5s5xwkp1rc" path="res://scripts/person/people.gd" id="1_m2l31"]
+[ext_resource type="PackedScene" uid="uid://3athoxt1ows7" path="res://prefabs/person.tscn" id="2_aoltl"]
+[ext_resource type="Script" uid="uid://ivjtn3ckartd" path="res://scripts/game/game.gd" id="3_papsp"]
+[ext_resource type="Texture2D" uid="uid://pq36apado1cb" path="res://sprites/faces/x3.png" id="4_8bi03"]
+[ext_resource type="Texture2D" uid="uid://ckwn2sle02ybo" path="res://sprites/faces/x4.png" id="5_ctk7w"]
+[ext_resource type="Texture2D" uid="uid://bdujr7n264vpp" path="res://sprites/faces/x2.png" id="6_3fn2n"]
+[ext_resource type="Texture2D" uid="uid://x2fm6l5yk2lc" path="res://sprites/faces/x5.png" id="7_tj8at"]
+[ext_resource type="Texture2D" uid="uid://dlrxwqu5nfai5" path="res://sprites/faces/x6.png" id="8_ude6t"]
+[ext_resource type="Script" uid="uid://dclhgvb3epv75" path="res://scripts/player/controller.gd" id="9_ggiaf"]
+[ext_resource type="Script" uid="uid://bqr7dhrerb5l" path="res://scripts/player/drag_and_drop.gd" id="10_2srqd"]
+[ext_resource type="Script" uid="uid://l6omdr1d3oyc" path="res://scripts/player/intersect_point.gd" id="11_030ws"]
+[ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="12_kypx5"]
+[ext_resource type="Script" uid="uid://dwqdrh70j5fv6" path="res://scripts/ui/number_of_lovers.gd" id="13_gme8e"]
+[ext_resource type="Script" uid="uid://l8ppi3l8bewf" path="res://scripts/ui/time_label.gd" id="14_aoltl"]
+[ext_resource type="Script" uid="uid://cs562nk2jt3ko" path="res://scripts/game/walls.gd" id="14_bwyj5"]
+[ext_resource type="Texture2D" uid="uid://bvatt8cp4covo" path="res://sprites/grass.png" id="15_egf61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js46e"]
+size = Vector2(32, 157)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64ba3"]
+size = Vector2(32, 174)
+
+[node name="3" type="Node2D" unique_id=1460614836]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=737257766]
+zoom = Vector2(3, 3)
+
+[node name="People" type="Node2D" parent="." unique_id=317639184]
+script = ExtResource("1_m2l31")
+person_packed = ExtResource("2_aoltl")
+
+[node name="Game" type="Node" parent="." unique_id=1882551454]
+script = ExtResource("3_papsp")
+faces = Array[Texture2D]([ExtResource("4_8bi03"), ExtResource("5_ctk7w"), ExtResource("6_3fn2n"), ExtResource("7_tj8at"), ExtResource("8_ude6t")])
+num_of_people = 24
+
+[node name="Controller" type="Node2D" parent="." unique_id=733999824]
+script = ExtResource("9_ggiaf")
+
+[node name="DragAndDrop" type="Node2D" parent="Controller" unique_id=123206758]
+script = ExtResource("10_2srqd")
+
+[node name="IntersectPoint" type="Node2D" parent="Controller" unique_id=944055193]
+script = ExtResource("11_030ws")
+
+[node name="Lovers" type="Node2D" parent="." unique_id=1032067600]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1422489711]
+
+[node name="Top" type="Control" parent="CanvasLayer" unique_id=1053971479]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 182.0
+offset_right = 182.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Top" unique_id=1066601621]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -182.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Number of Lovers Left: "
+label_settings = ExtResource("12_kypx5")
+
+[node name="SinglesCount" type="Label" parent="CanvasLayer/Top" unique_id=1784702430]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = ExtResource("12_kypx5")
+script = ExtResource("13_gme8e")
+
+[node name="Bottom" type="Control" parent="CanvasLayer" unique_id=1595400863]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Bottom" unique_id=1736874022]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -50.0
+offset_right = 16.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("12_kypx5")
+script = ExtResource("14_aoltl")
+
+[node name="Enviroment" type="Node2D" parent="." unique_id=910471547]
+
+[node name="Area2D" type="Area2D" parent="Enviroment" unique_id=1685876212]
+script = ExtResource("14_bwyj5")
+
+[node name="WallBody" type="StaticBody2D" parent="Enviroment" unique_id=1962176710]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=1595750013]
+position = Vector2(-166, 9)
+shape = SubResource("RectangleShape2D_js46e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=222977803]
+position = Vector2(160, 8.5)
+shape = SubResource("RectangleShape2D_js46e")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=493938017]
+position = Vector2(-81, -78)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_64ba3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=777222883]
+position = Vector2(63, -57)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_64ba3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=384286985]
+position = Vector2(86, 98)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_64ba3")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Enviroment/WallBody" unique_id=1206633689]
+position = Vector2(-79, 102)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_64ba3")
+
+[node name="Grass" type="Sprite2D" parent="Enviroment" unique_id=2004999333]
+z_index = -10
+position = Vector2(0, 14)
+scale = Vector2(0.33631387, 0.32375428)
+texture = ExtResource("15_egf61")

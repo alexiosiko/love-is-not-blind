@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://l6omdr1d3oyc" path="res://scripts/player/intersect_point.gd" id="11_ljn4o"]
 [ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="12_itcd2"]
 [ext_resource type="Script" uid="uid://dwqdrh70j5fv6" path="res://scripts/ui/number_of_lovers.gd" id="13_d6l04"]
+[ext_resource type="Script" uid="uid://l8ppi3l8bewf" path="res://scripts/ui/time_label.gd" id="14_64ba3"]
 [ext_resource type="Script" uid="uid://cs562nk2jt3ko" path="res://scripts/game/walls.gd" id="14_dlb51"]
 [ext_resource type="Texture2D" uid="uid://bvatt8cp4covo" path="res://sprites/grass.png" id="15_0hqpe"]
 
@@ -22,7 +23,7 @@ size = Vector2(32, 157)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_64ba3"]
 size = Vector2(32, 174)
 
-[node name="1" type="Node2D" unique_id=1460614836]
+[node name="2" type="Node2D" unique_id=1460614836]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=737257766]
 zoom = Vector2(3, 3)
@@ -34,6 +35,7 @@ person_packed = ExtResource("2_lfn86")
 [node name="Game" type="Node" parent="." unique_id=1882551454]
 script = ExtResource("3_0ejwr")
 faces = Array[Texture2D]([ExtResource("4_5udw4"), ExtResource("5_5l6j7"), ExtResource("6_4likk"), ExtResource("7_lhmav"), ExtResource("8_6qpsf")])
+num_of_people = 8
 
 [node name="Controller" type="Node2D" parent="." unique_id=733999824]
 script = ExtResource("9_t1lb4")
@@ -68,12 +70,38 @@ grow_horizontal = 0
 text = "Number of Lovers Left: "
 label_settings = ExtResource("12_itcd2")
 
-[node name="LoversLeftCount" type="Label" parent="CanvasLayer/Top" unique_id=1784702430]
+[node name="SinglesCount" type="Label" parent="CanvasLayer/Top" unique_id=1784702430]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
 label_settings = ExtResource("12_itcd2")
 script = ExtResource("13_d6l04")
+
+[node name="Bottom" type="Control" parent="CanvasLayer" unique_id=2113408315]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/Bottom" unique_id=1464686280]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -50.0
+offset_right = 16.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("12_itcd2")
+script = ExtResource("14_64ba3")
 
 [node name="Enviroment" type="Node2D" parent="." unique_id=910471547]
 

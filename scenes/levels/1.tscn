@@ -4,20 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://3athoxt1ows7" path="res://prefabs/person.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://l8ppi3l8bewf" path="res://scripts/ui/time_label.gd" id="3_ca42v"]
 [ext_resource type="Script" uid="uid://ivjtn3ckartd" path="res://scripts/game/game.gd" id="3_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://pq36apado1cb" path="res://sprites/faces/x3.png" id="4_p57ef"]
-[ext_resource type="Texture2D" uid="uid://ckwn2sle02ybo" path="res://sprites/faces/x4.png" id="5_u5sy4"]
-[ext_resource type="Texture2D" uid="uid://bdujr7n264vpp" path="res://sprites/faces/x2.png" id="6_gee14"]
 [ext_resource type="Script" uid="uid://dclhgvb3epv75" path="res://scripts/player/controller.gd" id="6_p57ef"]
-[ext_resource type="Texture2D" uid="uid://x2fm6l5yk2lc" path="res://sprites/faces/x5.png" id="7_trtic"]
 [ext_resource type="Script" uid="uid://bqr7dhrerb5l" path="res://scripts/player/drag_and_drop.gd" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://l6omdr1d3oyc" path="res://scripts/player/intersect_point.gd" id="8_gee14"]
-[ext_resource type="Texture2D" uid="uid://dlrxwqu5nfai5" path="res://sprites/faces/x6.png" id="8_ir15t"]
+[ext_resource type="AudioStream" uid="uid://2mytiarbc5pc" path="res://sounds/Menu/Menu_Click.wav" id="8_kekgo"]
 [ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://dwqdrh70j5fv6" path="res://scripts/ui/number_of_lovers.gd" id="10_vtaks"]
+[ext_resource type="AudioStream" uid="uid://fb76db0aio" path="res://sounds/Menu/UI_error.wav" id="11_576tg"]
 [ext_resource type="Texture2D" uid="uid://bvatt8cp4covo" path="res://sprites/grass.png" id="12_dinhu"]
 [ext_resource type="Script" uid="uid://cs562nk2jt3ko" path="res://scripts/game/walls.gd" id="14_ir15t"]
 
-[node name="Node2D" type="Node2D" unique_id=624366689]
+[node name="1" type="Node2D" unique_id=624366689]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=554313013]
 zoom = Vector2(3, 3)
@@ -41,10 +38,10 @@ anchor_right = 1.0
 offset_left = -182.0
 offset_bottom = 23.0
 grow_horizontal = 0
-text = "Number of Lovers Left: "
+text = "Number of Singles:"
 label_settings = ExtResource("10_kvpfn")
 
-[node name="LoversLeftCount" type="Label" parent="CanvasLayer/Top" unique_id=1143853439]
+[node name="SinglesCount" type="Label" parent="CanvasLayer/Top" unique_id=1143853439]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
@@ -81,19 +78,22 @@ script = ExtResource("3_ca42v")
 script = ExtResource("1_gee14")
 person_packed = ExtResource("1_uwrxv")
 
-[node name="Game" type="Node" parent="." unique_id=1067750754 node_paths=PackedStringArray("people")]
+[node name="Game" type="Node" parent="." unique_id=1067750754]
 script = ExtResource("3_lnu2h")
-faces = Array[Texture2D]([ExtResource("4_p57ef"), ExtResource("5_u5sy4"), ExtResource("6_gee14"), ExtResource("7_trtic"), ExtResource("8_ir15t")])
-people = NodePath("../People")
+num_of_people = 6
 
 [node name="Controller" type="Node2D" parent="." unique_id=1788381575]
 script = ExtResource("6_p57ef")
+click_sound = ExtResource("8_kekgo")
 
 [node name="DragAndDrop" type="Node2D" parent="Controller" unique_id=654410334]
 script = ExtResource("7_u5sy4")
 
 [node name="IntersectPoint" type="Node2D" parent="Controller" unique_id=1187716154]
 script = ExtResource("8_gee14")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Controller" unique_id=1045632807]
+stream = ExtResource("11_576tg")
 
 [node name="Lovers" type="Node2D" parent="." unique_id=900190736]
 

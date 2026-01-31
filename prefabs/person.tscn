@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ds03t3yt774os" path="res://scripts/person/person.gd" id="1_brf3g"]
 [ext_resource type="Texture2D" uid="uid://bdujr7n264vpp" path="res://sprites/faces/x2.png" id="1_wgeof"]
-[ext_resource type="Texture2D" uid="uid://cq78tbk7ptgsq" path="res://sprites/faces/body.png" id="2_3chhg"]
+[ext_resource type="Texture2D" uid="uid://cq78tbk7ptgsq" path="res://sprites/body.png" id="2_3chhg"]
+[ext_resource type="Texture2D" uid="uid://bho2wioy06pd6" path="res://sprites/body_hand_holding.png" id="2_lq3ko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brf3g"]
 size = Vector2(16, 16)
@@ -11,6 +12,7 @@ size = Vector2(16, 16)
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_brf3g")
+body_hand_holding = ExtResource("2_lq3ko")
 
 [node name="Mask" type="Sprite2D" parent="." unique_id=1022631546]
 texture = ExtResource("1_wgeof")
