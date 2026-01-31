@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://3athoxt1ows7"]
+
+[ext_resource type="Script" uid="uid://ds03t3yt774os" path="res://scripts/person/person.gd" id="1_brf3g"]
+[ext_resource type="Texture2D" uid="uid://bdujr7n264vpp" path="res://sprites/faces/x2.png" id="1_wgeof"]
+[ext_resource type="Texture2D" uid="uid://cq78tbk7ptgsq" path="res://sprites/faces/body.png" id="2_3chhg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brf3g"]
+size = Vector2(16, 16)
+
+[node name="Person" type="RigidBody2D" unique_id=1152385417]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_brf3g")
+
+[node name="Mask" type="Sprite2D" parent="." unique_id=1022631546]
+texture = ExtResource("1_wgeof")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1183552031]
+position = Vector2(0, 16)
+texture = ExtResource("2_3chhg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=815496431]
+shape = SubResource("RectangleShape2D_brf3g")

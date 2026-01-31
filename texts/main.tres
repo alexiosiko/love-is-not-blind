@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bhaiaix7e2w81"]
+
+[ext_resource type="FontFile" uid="uid://bb0r16xc8rqy0" path="res://fonts/DotGothic16-Regular.ttf" id="1_fsg80"]
+
+[resource]
+font = ExtResource("1_fsg80")
+font_size = 32
