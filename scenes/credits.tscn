@@ -4,7 +4,7 @@
 [ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="2_0ctdu"]
 [ext_resource type="Theme" uid="uid://ctk77735wr843" path="res://texts/button_theme.tres" id="3_0ctdu"]
 [ext_resource type="Script" uid="uid://cs5k0mbk4yvo3" path="res://scripts/ui/buttons/change_scene.gd" id="4_8gwij"]
-[ext_resource type="PackedScene" uid="uid://6qfcc24mfvrw" path="res://scenes/main_menu.tscn" id="5_mah5v"]
+[ext_resource type="PackedScene" uid="uid://y1nhk3ioa3ct" path="res://scenes/win.tscn" id="5_kyhnv"]
 [ext_resource type="AudioStream" uid="uid://2mytiarbc5pc" path="res://sounds/Menu/Menu_Click.wav" id="6_kyhnv"]
 [ext_resource type="AudioStream" uid="uid://lt3qkmq33nu7" path="res://sounds/Touch01.wav" id="7_ooihk"]
 
@@ -46,6 +46,6 @@ layout_mode = 2
 theme = ExtResource("3_0ctdu")
 text = "Main Menu"
 script = ExtResource("4_8gwij")
-scene_to_load = ExtResource("5_mah5v")
+scene_to_load = ExtResource("5_kyhnv")
 click_sound_stream = ExtResource("6_kyhnv")
 hover_audio_stream = ExtResource("7_ooihk")
