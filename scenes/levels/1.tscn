@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://bqr7dhrerb5l" path="res://scripts/player/drag_and_drop.gd" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://l6omdr1d3oyc" path="res://scripts/player/intersect_point.gd" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://2mytiarbc5pc" path="res://sounds/Menu/Menu_Click.wav" id="8_kekgo"]
+[ext_resource type="Texture2D" uid="uid://fmf8x6ga0k52" path="res://sprites/cursor/fingers2.png" id="10_0ejwr"]
+[ext_resource type="Texture2D" uid="uid://cqrni3v0lg87" path="res://sprites/cursor/fingers1.png" id="10_5udw4"]
 [ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://dwqdrh70j5fv6" path="res://scripts/ui/number_of_lovers.gd" id="10_vtaks"]
 [ext_resource type="AudioStream" uid="uid://fb76db0aio" path="res://sounds/Menu/UI_error.wav" id="11_576tg"]
@@ -87,11 +89,12 @@ num_of_people = 6
 
 [node name="WinStream" type="AudioStreamPlayer2D" parent="Game" unique_id=1802337331]
 stream = ExtResource("7_g3chb")
-volume_db = 3.0
 
 [node name="Controller" type="Node2D" parent="." unique_id=1788381575]
 script = ExtResource("6_p57ef")
 click_sound = ExtResource("8_kekgo")
+default_cursor = ExtResource("10_5udw4")
+click_cursor = ExtResource("10_0ejwr")
 
 [node name="DragAndDrop" type="Node2D" parent="Controller" unique_id=654410334]
 script = ExtResource("7_u5sy4")
@@ -116,12 +119,11 @@ script = ExtResource("14_ir15t")
 [node name="WallBody" type="StaticBody2D" parent="Enviroment" unique_id=1571941575]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviroment/WallBody" unique_id=2033283670]
-visible = false
 position = Vector2(-13.692744, 11.290205)
 polygon = PackedVector2Array(18.692745, -50.290207, -10.307256, -67.29021, -59.307255, -70.29021, -105.30726, -73.29021, -131.30725, -76.29021, -146.30725, -55.290207, -147.30725, -16.290205, -149.30725, 5.709795, -134.30725, 26.709795, -152.30725, 62.709793, -97.30726, 54.709793, -67.30726, 56.709793, -33.307255, 55.709793, -2.3072557, 60.709793, 58.692745, 61.709793, 101.69274, 49.709793, 128.69275, 67.70979, 163.69275, 70.70979, 169.69275, 38.709793, 168.69275, -28.290205, 158.69275, -61.290207, 110.69274, -66.29021, 29.692745, -50.290207, 11.692744, -57.290207, 191.69275, -105.29021, 202.69275, 96.70979, -200.30725, 107.70979, -172.30725, -99.29021, 16.692745, -94.29021)
 
-[node name="Grass" type="Sprite2D" parent="Enviroment" unique_id=605742878]
+[node name="Grass" type="Sprite2D" parent="." unique_id=253891942]
 z_index = -10
-position = Vector2(0, 14)
-scale = Vector2(0.33631387, 0.32375428)
+position = Vector2(-3.4999952, 11.500004)
+scale = Vector2(1.2448275, 1.1933333)
 texture = ExtResource("12_dinhu")

@@ -5,6 +5,10 @@
 [ext_resource type="Script" uid="uid://cs5k0mbk4yvo3" path="res://scripts/ui/buttons/change_scene.gd" id="2_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://cejig7k64cx1e" path="res://scenes/levels/1.tscn" id="3_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://2mytiarbc5pc" path="res://sounds/Menu/Menu_Click.wav" id="4_wu84c"]
+[ext_resource type="PackedScene" uid="uid://smkyen20ubtw" path="res://scenes/credits.tscn" id="6_rtw2f"]
+[ext_resource type="AudioStream" uid="uid://cinmbmq7cho05" path="res://sounds/Touch02.wav" id="6_tbmy8"]
+[ext_resource type="AudioStream" uid="uid://lt3qkmq33nu7" path="res://sounds/Touch01.wav" id="7_oa1go"]
+[ext_resource type="AudioStream" uid="uid://c80vlxvff31bc" path="res://sounds/music/Waiting.ogg" id="9_jk1qb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
 font = ExtResource("1_l6cm7")
@@ -37,6 +41,18 @@ theme = ExtResource("2_8ln24")
 text = "Play"
 script = ExtResource("2_ekxnf")
 scene_to_load = ExtResource("3_bqqt6")
+click_sound_stream = ExtResource("4_wu84c")
+hover_audio_stream = ExtResource("6_tbmy8")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer/Button" unique_id=136726105]
-stream = ExtResource("4_wu84c")
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1888221601]
+layout_mode = 2
+theme = ExtResource("2_8ln24")
+text = "Credits"
+script = ExtResource("2_ekxnf")
+scene_to_load = ExtResource("6_rtw2f")
+click_sound_stream = ExtResource("4_wu84c")
+hover_audio_stream = ExtResource("7_oa1go")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1223722453]
+stream = ExtResource("9_jk1qb")
+autoplay = true

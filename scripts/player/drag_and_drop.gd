@@ -34,7 +34,6 @@ func compare(person: Person):
 		drop()
 func drop() -> void:
 	drag_person.set_collision_layer_value(1, true)
-	drag_person.global_position = get_global_mouse_position()
 	drag_person.drop()
 	drag_person = null
 	

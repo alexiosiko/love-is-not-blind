@@ -12,11 +12,14 @@
 [ext_resource type="Script" uid="uid://dclhgvb3epv75" path="res://scripts/player/controller.gd" id="9_woq4y"]
 [ext_resource type="Script" uid="uid://bqr7dhrerb5l" path="res://scripts/player/drag_and_drop.gd" id="10_ugu2m"]
 [ext_resource type="Script" uid="uid://l6omdr1d3oyc" path="res://scripts/player/intersect_point.gd" id="11_pergv"]
+[ext_resource type="AudioStream" uid="uid://2mytiarbc5pc" path="res://sounds/Menu/Menu_Click.wav" id="11_woq4y"]
 [ext_resource type="AudioStream" uid="uid://fb76db0aio" path="res://sounds/Menu/UI_error.wav" id="12_5krev"]
+[ext_resource type="Texture2D" uid="uid://cqrni3v0lg87" path="res://sprites/cursor/fingers1.png" id="12_ugu2m"]
 [ext_resource type="PackedScene" uid="uid://dkjqcdxldw7ov" path="res://prefabs/heart.tscn" id="12_xrvj4"]
 [ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="12_y00na"]
 [ext_resource type="AudioStream" uid="uid://cd7bflx8withl" path="res://sounds/Menu/Menu_Start.wav" id="13_fepc6"]
 [ext_resource type="Script" uid="uid://dwqdrh70j5fv6" path="res://scripts/ui/number_of_lovers.gd" id="13_gd80g"]
+[ext_resource type="Texture2D" uid="uid://fmf8x6ga0k52" path="res://sprites/cursor/fingers2.png" id="13_pergv"]
 [ext_resource type="Script" uid="uid://cs562nk2jt3ko" path="res://scripts/game/walls.gd" id="14_ag0k3"]
 [ext_resource type="Script" uid="uid://l8ppi3l8bewf" path="res://scripts/ui/time_label.gd" id="14_m53y0"]
 [ext_resource type="Texture2D" uid="uid://bvatt8cp4covo" path="res://sprites/grass.png" id="15_wu7t4"]
@@ -47,6 +50,9 @@ volume_db = 3.0
 
 [node name="Controller" type="Node2D" parent="." unique_id=733999824]
 script = ExtResource("9_woq4y")
+click_sound = ExtResource("11_woq4y")
+default_cursor = ExtResource("12_ugu2m")
+click_cursor = ExtResource("13_pergv")
 
 [node name="DragAndDrop" type="Node2D" parent="Controller" unique_id=123206758]
 script = ExtResource("10_ugu2m")
@@ -82,7 +88,7 @@ anchor_right = 1.0
 offset_left = -182.0
 offset_bottom = 23.0
 grow_horizontal = 0
-text = "Number of Lovers Left: "
+text = "Number of Singles:"
 label_settings = ExtResource("12_y00na")
 
 [node name="SinglesCount" type="Label" parent="CanvasLayer/Top" unique_id=1784702430]
@@ -153,8 +159,8 @@ position = Vector2(-79, 102)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_64ba3")
 
-[node name="Grass" type="Sprite2D" parent="Enviroment" unique_id=2004999333]
+[node name="Grass" type="Sprite2D" parent="." unique_id=594365381]
 z_index = -10
-position = Vector2(0, 14)
-scale = Vector2(0.33631387, 0.32375428)
+position = Vector2(-3.4999952, 11.500004)
+scale = Vector2(1.2448275, 1.1933333)
 texture = ExtResource("15_wu7t4")

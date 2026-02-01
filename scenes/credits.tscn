@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://smkyen20ubtw"]
+
+[ext_resource type="FontFile" uid="uid://bb0r16xc8rqy0" path="res://fonts/DotGothic16-Regular.ttf" id="1_2ckv8"]
+[ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="2_0ctdu"]
+[ext_resource type="Theme" uid="uid://ctk77735wr843" path="res://texts/button_theme.tres" id="3_0ctdu"]
+[ext_resource type="Script" uid="uid://cs5k0mbk4yvo3" path="res://scripts/ui/buttons/change_scene.gd" id="4_8gwij"]
+[ext_resource type="PackedScene" uid="uid://6qfcc24mfvrw" path="res://scenes/main_menu.tscn" id="5_mah5v"]
+[ext_resource type="AudioStream" uid="uid://2mytiarbc5pc" path="res://sounds/Menu/Menu_Click.wav" id="6_kyhnv"]
+[ext_resource type="AudioStream" uid="uid://lt3qkmq33nu7" path="res://sounds/Touch01.wav" id="7_ooihk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fbfq"]
+font = ExtResource("1_2ckv8")
+font_size = 64
+
+[node name="Credits" type="CanvasLayer" unique_id=974865765]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=797278553]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 138.0
+offset_top = -179.5
+offset_right = -138.0
+offset_bottom = 179.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1290890756]
+layout_mode = 2
+text = "Credits"
+label_settings = SubResource("LabelSettings_2fbfq")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=2033491192]
+layout_mode = 2
+text = "Music composed by Bert Cole
+https://bit-by-bit-sound.itch.io/16-bit-starter-pack/download/eyJleHBpcmVzIjoxNzY5OTUyMTA2LCJpZCI6MjE0MDMxOH0%3d.2ubD%2f3ZbAmjyZEjPdEfmOb1cToc%3d
+"
+label_settings = ExtResource("2_0ctdu")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=2104393289]
+layout_mode = 2
+theme = ExtResource("3_0ctdu")
+text = "Main Menu"
+script = ExtResource("4_8gwij")
+scene_to_load = ExtResource("5_mah5v")
+click_sound_stream = ExtResource("6_kyhnv")
+hover_audio_stream = ExtResource("7_ooihk")

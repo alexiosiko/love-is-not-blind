@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="mask"
-run/main_scene="uid://cejig7k64cx1e"
+run/main_scene="uid://6qfcc24mfvrw"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,11 +19,14 @@ config/icon="res://icon.svg"
 
 DebugDraw2d="*uid://cj6c318mdkrju"
 GlobalTimer="*uid://b2kfn3s4w66yd"
+GlobalAudioStream="*uid://c6ku6s1souib1"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+mouse_cursor/custom_image="uid://cqrni3v0lg87"
+mouse_cursor/custom_image_hotspot=Vector2(6, 2)
 
 [input]
 

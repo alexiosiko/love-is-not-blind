@@ -24,7 +24,6 @@ func _input(event: InputEvent) -> void:
 		set_random_direction()
 
 func randomize_loop() -> void:
-	await get_tree().process_frame
 	while loved == false && stop_random == false:
 		set_random_direction()
 		set_random_face()
@@ -49,18 +48,16 @@ func _ready() -> void:
 	gravity_scale = 0
 	randomize_loop()
 
+	
+
 func set_face(face: Texture2D):
 	mask.texture = face
 	mask_texture_filter_resource_path = face.resource_path
 	
 func set_random_face() -> void:
-	freeze = true
 	$AnimationPlayer.play("change_mask")
-	await get_tree().create_timer(0.5).timeout
 	var face: Texture2D = await get_random_face()
 	set_face(face)
-	await get_tree().create_timer(0.5).timeout
-	freeze = false
 	
 func get_random_face() -> Texture2D:
 	await get_tree().process_frame

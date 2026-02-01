@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ca0xqyvsl8fqc" path="res://sprites/change_mask.png" id="15_upagq"]
 [ext_resource type="Texture2D" uid="uid://c4hm05dmq0ep7" path="res://sprites/lovers.png" id="16_3ugwy"]
 [ext_resource type="Script" uid="uid://olqgfml3w8n4" path="res://scripts/person/body.gd" id="17_3ugwy"]
+[ext_resource type="Texture2D" uid="uid://c78vfw8pnld7m" path="res://sprites/head.png" id="19_cej33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brf3g"]
 size = Vector2(16, 16)
@@ -308,3 +309,7 @@ script = ExtResource("17_3ugwy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=229408346]
 libraries/ = SubResource("AnimationLibrary_2wo3h")
+
+[node name="Head" type="Sprite2D" parent="." unique_id=1529474044]
+z_index = -1
+texture = ExtResource("19_cej33")
