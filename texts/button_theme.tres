@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://ctk77735wr843"]
+
+[ext_resource type="FontFile" uid="uid://bb0r16xc8rqy0" path="res://fonts/DotGothic16-Regular.ttf" id="1_vorq5"]
+
+[resource]
+default_font = ExtResource("1_vorq5")
+default_font_size = 32

@@ -7,11 +7,9 @@ extends Node2D
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse1"):
-		print("asdsa")
-		
 		var node: Node2D = intersect_point.get_person()
 		if node is Person:
 			drag_and_drop.start_drag(node)
 		else:
-			$AudioStreamPlayer2D.stream = click_sound
-			$AudioStreamPlayer2D.play()
+			$MissAudio.stream = click_sound
+			$MissAudio.play()

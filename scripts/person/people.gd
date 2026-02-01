@@ -9,10 +9,8 @@ func _ready() -> void:
 
 func on_made_lovers():
 	if get_child_count() == 2:
-		var face = await get_child(0).get_random_face()
-		for c in get_children() as Array[Person]:
-			c.set_face(face)
-			c.stop_random = true
+		for c in get_children():
+			c.set_random_face()
 			
 func create_people(num_of_people: int):
 	for i in range(num_of_people):

@@ -12,7 +12,7 @@ var loved: bool = false
 var stop_random: bool = false
 
 func set_loved(loved_value: bool) -> void:
-	$Body.texture = body_hand_holding
+	$Body.play("lovers")
 	loved = loved_value
 	set_collision_mask_value(1, false)
 	set_collision_layer_value(1, false)
@@ -29,15 +29,19 @@ func randomize_loop() -> void:
 		set_random_direction()
 		set_random_face()
 		set_random_speed()
+		$TapStreams.play()
 		var wait_time := randf_range(1.0, 5.0)
 		await get_tree().create_timer(wait_time).timeout
  
 func _physics_process(delta: float) -> void:
 	linear_velocity = move_delta.normalized() * speed
-	
+	if linear_velocity.x < 0:
+		face_left(true)
+	elif linear_velocity.x > 0:
+		face_left(false)
 func set_random_direction():
 	move_delta = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
-
+	
 func set_random_speed():
 	speed = randf_range(17, 24)
 
@@ -50,12 +54,34 @@ func set_face(face: Texture2D):
 	mask_texture_filter_resource_path = face.resource_path
 	
 func set_random_face() -> void:
+	freeze = true
+	$AnimationPlayer.play("change_mask")
+	await get_tree().create_timer(0.5).timeout
 	var face: Texture2D = await get_random_face()
 	set_face(face)
+	await get_tree().create_timer(0.5).timeout
+	freeze = false
 	
 func get_random_face() -> Texture2D:
 	await get_tree().process_frame
 	var game = $"../../Game"
-	var max_range = mini(game.faces.size() - 1, $"..".get_child_count() / 2)
+	var max_range 
+	if $"..".get_child_count() == 2:
+		max_range = 0
+	else: 
+		max_range = mini(game.faces.size() - 1, $"..".get_child_count() / 2)
 	var random_i: int = randi_range(0, max_range)
 	return game.faces[random_i]
+
+func drop():
+	$DropStreams.play()
+
+func face_left(left: bool):
+	if left:
+		$Body.flip_h = true
+	else:
+		$Body.flip_h = false
+		
+func start_pickup():
+	rotation_degrees = 0
+	$PickupStreams.play()

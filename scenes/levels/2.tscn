@@ -3,15 +3,19 @@
 [ext_resource type="Script" uid="uid://jb5s5xwkp1rc" path="res://scripts/person/people.gd" id="1_g3chb"]
 [ext_resource type="PackedScene" uid="uid://3athoxt1ows7" path="res://prefabs/person.tscn" id="2_lfn86"]
 [ext_resource type="Script" uid="uid://ivjtn3ckartd" path="res://scripts/game/game.gd" id="3_0ejwr"]
-[ext_resource type="Texture2D" uid="uid://pq36apado1cb" path="res://sprites/faces/x3.png" id="4_5udw4"]
-[ext_resource type="Texture2D" uid="uid://ckwn2sle02ybo" path="res://sprites/faces/x4.png" id="5_5l6j7"]
-[ext_resource type="Texture2D" uid="uid://bdujr7n264vpp" path="res://sprites/faces/x2.png" id="6_4likk"]
-[ext_resource type="Texture2D" uid="uid://x2fm6l5yk2lc" path="res://sprites/faces/x5.png" id="7_lhmav"]
-[ext_resource type="Texture2D" uid="uid://dlrxwqu5nfai5" path="res://sprites/faces/x6.png" id="8_6qpsf"]
+[ext_resource type="Texture2D" uid="uid://pq36apado1cb" path="res://sprites/masks/x3.png" id="4_5udw4"]
+[ext_resource type="Texture2D" uid="uid://ckwn2sle02ybo" path="res://sprites/masks/x4.png" id="5_5l6j7"]
+[ext_resource type="Texture2D" uid="uid://bdujr7n264vpp" path="res://sprites/masks/x2.png" id="6_4likk"]
+[ext_resource type="Texture2D" uid="uid://x2fm6l5yk2lc" path="res://sprites/masks/x5.png" id="7_lhmav"]
+[ext_resource type="Texture2D" uid="uid://dlrxwqu5nfai5" path="res://sprites/masks/x6.png" id="8_6qpsf"]
+[ext_resource type="AudioStream" uid="uid://pat0imnbadjo" path="res://sounds/Win_Lose/High_Score.wav" id="9_pcsq5"]
 [ext_resource type="Script" uid="uid://dclhgvb3epv75" path="res://scripts/player/controller.gd" id="9_t1lb4"]
 [ext_resource type="Script" uid="uid://bqr7dhrerb5l" path="res://scripts/player/drag_and_drop.gd" id="10_5psil"]
 [ext_resource type="Script" uid="uid://l6omdr1d3oyc" path="res://scripts/player/intersect_point.gd" id="11_ljn4o"]
+[ext_resource type="PackedScene" uid="uid://dkjqcdxldw7ov" path="res://prefabs/heart.tscn" id="12_7lk5s"]
+[ext_resource type="AudioStream" uid="uid://fb76db0aio" path="res://sounds/Menu/UI_error.wav" id="12_i33xw"]
 [ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="12_itcd2"]
+[ext_resource type="AudioStream" uid="uid://cd7bflx8withl" path="res://sounds/Menu/Menu_Start.wav" id="13_76eh3"]
 [ext_resource type="Script" uid="uid://dwqdrh70j5fv6" path="res://scripts/ui/number_of_lovers.gd" id="13_d6l04"]
 [ext_resource type="Script" uid="uid://l8ppi3l8bewf" path="res://scripts/ui/time_label.gd" id="14_64ba3"]
 [ext_resource type="Script" uid="uid://cs562nk2jt3ko" path="res://scripts/game/walls.gd" id="14_dlb51"]
@@ -37,14 +41,25 @@ script = ExtResource("3_0ejwr")
 faces = Array[Texture2D]([ExtResource("4_5udw4"), ExtResource("5_5l6j7"), ExtResource("6_4likk"), ExtResource("7_lhmav"), ExtResource("8_6qpsf")])
 num_of_people = 8
 
+[node name="WinStream" type="AudioStreamPlayer2D" parent="Game" unique_id=2056259435]
+stream = ExtResource("9_pcsq5")
+volume_db = 3.0
+
 [node name="Controller" type="Node2D" parent="." unique_id=733999824]
 script = ExtResource("9_t1lb4")
 
 [node name="DragAndDrop" type="Node2D" parent="Controller" unique_id=123206758]
 script = ExtResource("10_5psil")
+heart = ExtResource("12_7lk5s")
 
 [node name="IntersectPoint" type="Node2D" parent="Controller" unique_id=944055193]
 script = ExtResource("11_ljn4o")
+
+[node name="MissAudio" type="AudioStreamPlayer2D" parent="Controller" unique_id=858755497]
+stream = ExtResource("12_i33xw")
+
+[node name="CreateLoveStream" type="AudioStreamPlayer2D" parent="Controller" unique_id=341021975]
+stream = ExtResource("13_76eh3")
 
 [node name="Lovers" type="Node2D" parent="." unique_id=1032067600]
 

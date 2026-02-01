@@ -5,13 +5,16 @@
 [ext_resource type="Script" uid="uid://l8ppi3l8bewf" path="res://scripts/ui/time_label.gd" id="3_ca42v"]
 [ext_resource type="Script" uid="uid://ivjtn3ckartd" path="res://scripts/game/game.gd" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://dclhgvb3epv75" path="res://scripts/player/controller.gd" id="6_p57ef"]
+[ext_resource type="AudioStream" uid="uid://pat0imnbadjo" path="res://sounds/Win_Lose/High_Score.wav" id="7_g3chb"]
 [ext_resource type="Script" uid="uid://bqr7dhrerb5l" path="res://scripts/player/drag_and_drop.gd" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://l6omdr1d3oyc" path="res://scripts/player/intersect_point.gd" id="8_gee14"]
 [ext_resource type="AudioStream" uid="uid://2mytiarbc5pc" path="res://sounds/Menu/Menu_Click.wav" id="8_kekgo"]
 [ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://dwqdrh70j5fv6" path="res://scripts/ui/number_of_lovers.gd" id="10_vtaks"]
 [ext_resource type="AudioStream" uid="uid://fb76db0aio" path="res://sounds/Menu/UI_error.wav" id="11_576tg"]
+[ext_resource type="PackedScene" uid="uid://dkjqcdxldw7ov" path="res://prefabs/heart.tscn" id="11_lfn86"]
 [ext_resource type="Texture2D" uid="uid://bvatt8cp4covo" path="res://sprites/grass.png" id="12_dinhu"]
+[ext_resource type="AudioStream" uid="uid://cd7bflx8withl" path="res://sounds/Menu/Menu_Start.wav" id="12_dkf84"]
 [ext_resource type="Script" uid="uid://cs562nk2jt3ko" path="res://scripts/game/walls.gd" id="14_ir15t"]
 
 [node name="1" type="Node2D" unique_id=624366689]
@@ -82,18 +85,26 @@ person_packed = ExtResource("1_uwrxv")
 script = ExtResource("3_lnu2h")
 num_of_people = 6
 
+[node name="WinStream" type="AudioStreamPlayer2D" parent="Game" unique_id=1802337331]
+stream = ExtResource("7_g3chb")
+volume_db = 3.0
+
 [node name="Controller" type="Node2D" parent="." unique_id=1788381575]
 script = ExtResource("6_p57ef")
 click_sound = ExtResource("8_kekgo")
 
 [node name="DragAndDrop" type="Node2D" parent="Controller" unique_id=654410334]
 script = ExtResource("7_u5sy4")
+heart = ExtResource("11_lfn86")
 
 [node name="IntersectPoint" type="Node2D" parent="Controller" unique_id=1187716154]
 script = ExtResource("8_gee14")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Controller" unique_id=1045632807]
+[node name="MissAudio" type="AudioStreamPlayer2D" parent="Controller" unique_id=1045632807]
 stream = ExtResource("11_576tg")
+
+[node name="CreateLoveStream" type="AudioStreamPlayer2D" parent="Controller" unique_id=1274733598]
+stream = ExtResource("12_dkf84")
 
 [node name="Lovers" type="Node2D" parent="." unique_id=900190736]
 
@@ -105,7 +116,9 @@ script = ExtResource("14_ir15t")
 [node name="WallBody" type="StaticBody2D" parent="Enviroment" unique_id=1571941575]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enviroment/WallBody" unique_id=2033283670]
-polygon = PackedVector2Array(5, -39, -24, -56, -73, -59, -119, -62, -145, -65, -160, -44, -161, -5, -163, 17, -148, 38, -166, 74, -111, 66, -81, 68, -47, 67, -16, 72, 45, 73, 88, 61, 115, 79, 150, 82, 156, 50, 155, -17, 145, -50, 97, -55, 16, -39, -2, -46, 178, -94, 189, 108, -214, 119, -186, -88, 3, -83)
+visible = false
+position = Vector2(-13.692744, 11.290205)
+polygon = PackedVector2Array(18.692745, -50.290207, -10.307256, -67.29021, -59.307255, -70.29021, -105.30726, -73.29021, -131.30725, -76.29021, -146.30725, -55.290207, -147.30725, -16.290205, -149.30725, 5.709795, -134.30725, 26.709795, -152.30725, 62.709793, -97.30726, 54.709793, -67.30726, 56.709793, -33.307255, 55.709793, -2.3072557, 60.709793, 58.692745, 61.709793, 101.69274, 49.709793, 128.69275, 67.70979, 163.69275, 70.70979, 169.69275, 38.709793, 168.69275, -28.290205, 158.69275, -61.290207, 110.69274, -66.29021, 29.692745, -50.290207, 11.692744, -57.290207, 191.69275, -105.29021, 202.69275, 96.70979, -200.30725, 107.70979, -172.30725, -99.29021, 16.692745, -94.29021)
 
 [node name="Grass" type="Sprite2D" parent="Enviroment" unique_id=605742878]
 z_index = -10

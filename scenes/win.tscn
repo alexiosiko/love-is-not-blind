@@ -2,8 +2,11 @@
 
 [ext_resource type="FontFile" uid="uid://bb0r16xc8rqy0" path="res://fonts/DotGothic16-Regular.ttf" id="1_826fv"]
 [ext_resource type="LabelSettings" uid="uid://bhaiaix7e2w81" path="res://texts/main.tres" id="2_iiocm"]
+[ext_resource type="Theme" uid="uid://ctk77735wr843" path="res://texts/button_theme.tres" id="3_5vxan"]
 [ext_resource type="Script" uid="uid://cs5k0mbk4yvo3" path="res://scripts/ui/buttons/change_scene.gd" id="3_yxbqr"]
 [ext_resource type="PackedScene" uid="uid://6qfcc24mfvrw" path="res://scenes/main_menu.tscn" id="4_tylv2"]
+[ext_resource type="AudioStream" uid="uid://cky8xmk30bx0g" path="res://sounds/Win_Lose/All_Enemies_Killed.wav" id="5_tylv2"]
+[ext_resource type="AudioStream" uid="uid://2mytiarbc5pc" path="res://sounds/Menu/Menu_Click.wav" id="6_4826q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yxbqr"]
 font = ExtResource("1_826fv")
@@ -30,6 +33,7 @@ grow_vertical = 2
 layout_mode = 2
 text = "WINNER"
 label_settings = SubResource("LabelSettings_yxbqr")
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=928027986]
 layout_mode = 2
@@ -38,7 +42,16 @@ text = "Love truly IS blind"
 label_settings = ExtResource("2_iiocm")
 
 [node name="Button" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1224236391]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+theme = ExtResource("3_5vxan")
 text = "Go Back"
 script = ExtResource("3_yxbqr")
 scene_to_load = ExtResource("4_tylv2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/VBoxContainer/Button" unique_id=1868872524]
+stream = ExtResource("6_4826q")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2122676824]
+stream = ExtResource("5_tylv2")
+autoplay = true

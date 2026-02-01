@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6qfcc24mfvrw"]
 
 [ext_resource type="FontFile" uid="uid://bb0r16xc8rqy0" path="res://fonts/DotGothic16-Regular.ttf" id="1_l6cm7"]
+[ext_resource type="Theme" uid="uid://ctk77735wr843" path="res://texts/button_theme.tres" id="2_8ln24"]
 [ext_resource type="Script" uid="uid://cs5k0mbk4yvo3" path="res://scripts/ui/buttons/change_scene.gd" id="2_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://cejig7k64cx1e" path="res://scenes/levels/1.tscn" id="3_bqqt6"]
 [ext_resource type="AudioStream" uid="uid://2mytiarbc5pc" path="res://sounds/Menu/Menu_Click.wav" id="4_wu84c"]
@@ -32,6 +33,7 @@ label_settings = SubResource("LabelSettings_ekxnf")
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=833939265]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+theme = ExtResource("2_8ln24")
 text = "Play"
 script = ExtResource("2_ekxnf")
 scene_to_load = ExtResource("3_bqqt6")
